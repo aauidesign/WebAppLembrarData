@@ -1,0 +1,132 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<AppLembrarData.Entity.Compromisso>
+
+
+@{
+    ViewData["Title"] = "Lista de Compromissos";
+}
+
+<h2 class="text-center">@ViewData["Title"]</h2>
+
+
+<form class="mt-5" asp-action="index" asp-controller="compromisso" method="get">
+    <div class="row">
+        <div class="col-md-8">
+            <p class="form-inline">
+                <input type="search" name="search" value="@ViewBag.Search" placeholder="Pesquise por Título..." style="width:80%" class="form-control" />
+                <button type="submit" name="name" value="" class="btn btn-success"><i class="fas fa-search"></i></button>
+            </p>
+            <a class="align-self-center" asp-action="Index">Limpar pesquisa</a>
+        </div>
+        <div class="col-md-4">
+            <div class="text-right">
+                <a class="btn btn-primary align-items-end" asp-action="Create"><i class="fas fa-plus-circle"></i> Novo Compromisso</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="mt-3">
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        @Html.DisplayName("Titulo")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Tipo")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Data do Compromisso")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Status")
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if (item.DataCompromisso.ToString("dd-MM-yyyy") == DateTime.Now.ToString("dd-MM-yyyy"))
+                            {
+                                <span class="alert-danger p-1 rounded form-control text-center">Hoje</span>
+                            }
+                            else
+                            {
+
+                                var diasRestantes = item.DataCompromisso.Subtract(DateTime.Today);
+
+                                <span class="alert-info p-1 rounded form-control text-center">@diasRestantes.ToString("dd") dia(s)</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @if (item.TipoCompromisso == 1)
+                            {
+                                <label>Aniversário</label>
+                            }
+                            else if (item.TipoCompromisso == 2)
+                            {
+                                <label>Feriado</label>
+                            }
+                            else
+                            {
+                                <label>Outro</label>
+                            }
+                        </td>
+                        <td>
+                            @item.DataCompromisso.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @if (item.Status == 1)
+                            {
+                                <label>Ativo</label>
+                            }
+                            else if (item.Status == 2)
+                            {
+                                <label>Inativo</label>
+                            }
+                            else if (item.Status == 3)
+                            {
+                                <label>Concluido</label>
+                            }
+                            else
+                            {
+                                <label>Cancelado</label>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("", "Edit", new { item.Id }, new { @class= "btn btn-warning fas fa-pen p-2" })
+                            @Html.ActionLink("", "Details", new { item.Id }, new { @class = "btn btn-info fas fa-search p-2" }) 
+                            @Html.ActionLink("", "Delete", new { item.Id }, new { @class = "btn btn-danger fas fa-trash-alt p-2" })
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <div class="col-md-4">
+        Listando registros de @Model.FirstItemOnPage a @Model.LastItemOnPage a um total de @Model.TotalItemCount
+    </div>
+</div>
+
+
+
+
+
