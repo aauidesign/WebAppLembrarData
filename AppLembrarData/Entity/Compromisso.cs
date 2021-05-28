@@ -20,5 +20,8 @@ namespace AppLembrarData.Entity
 
         public int Status { get; set; }
 
+
+        //Add new comentario para NovaBranch
+        public string NewBranch { get; set; }
     }
 }
