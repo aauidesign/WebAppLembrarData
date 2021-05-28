@@ -5,20 +5,26 @@ namespace AppLembrarData.Entity
 {
     public class Compromisso
     {
+        public Compromisso()
+        {
+
+        }
+
         [Key]
         public int Id { get; set; }
-
         public string Titulo { get; set; }
-
         public string Descricao { get; set; }
-
-        [Display(Description ="Tipo do Compromisso")]
         public int TipoCompromisso { get; set; }
-
-        [Display(Description = "Data do Compromisso")]
         public DateTime DataCompromisso { get; set; }
 
         public int Status { get; set; }
 
+        public Compromisso(DateTime dataCompromisso)
+        {
+            dataCompromisso = DateTime.Now;
+        }
+
     }
+
+
 }

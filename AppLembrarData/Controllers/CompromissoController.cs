@@ -62,6 +62,7 @@ namespace AppLembrarData.Controllers
         public IActionResult Create()
         {
             var compromisso = new Compromisso();
+
             PopularTipoCompromisso();
             Status();
 
