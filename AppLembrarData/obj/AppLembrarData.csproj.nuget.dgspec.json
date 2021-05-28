@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aalve\\source\\repos\\AppLembrarData\\AppLembrarData\\AppLembrarData.csproj": {}
+    "C:\\Dev\\github\\WebAppLembrarData\\AppLembrarData\\AppLembrarData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aalve\\source\\repos\\AppLembrarData\\AppLembrarData\\AppLembrarData.csproj": {
+    "C:\\Dev\\github\\WebAppLembrarData\\AppLembrarData\\AppLembrarData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aalve\\source\\repos\\AppLembrarData\\AppLembrarData\\AppLembrarData.csproj",
+        "projectUniqueName": "C:\\Dev\\github\\WebAppLembrarData\\AppLembrarData\\AppLembrarData.csproj",
         "projectName": "AppLembrarData",
-        "projectPath": "C:\\Users\\aalve\\source\\repos\\AppLembrarData\\AppLembrarData\\AppLembrarData.csproj",
+        "projectPath": "C:\\Dev\\github\\WebAppLembrarData\\AppLembrarData\\AppLembrarData.csproj",
         "packagesPath": "C:\\Users\\aalve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aalve\\source\\repos\\AppLembrarData\\AppLembrarData\\obj\\",
+        "outputPath": "C:\\Dev\\github\\WebAppLembrarData\\AppLembrarData\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
